@@ -1,0 +1,44 @@
+{
+  "runs": [
+    {
+      "at": "2026-10-27T17:50:30.236Z",
+      "retries": 0,
+      "tests": [
+        {
+          "file": "e2e/start-page.spec.ts",
+          "title": "start page answers 200 and shows exactly one non-empty h1",
+          "line": 7,
+          "refs": {
+            "cases": [
+              {
+                "capability": "web-app",
+                "name": "Start page has exactly one heading"
+              },
+              {
+                "capability": "dev-environment",
+                "name": "E2E check of the start page"
+              }
+            ],
+            "scenarios": [
+              {
+                "capability": "web-app",
+                "scenario": "Start page opens"
+              },
+              {
+                "capability": "dev-environment",
+                "scenario": "Start page opens in the browser"
+              }
+            ]
+          },
+          "status": "passed"
+        }
+      ],
+      "appState": "74ffba30237636ef0c40edc3240e2e37344d0dc5516c9f1c0e9206947989e862",
+      "testFiles": {
+        "e2e/package.json": "0d2df34ee8943cbb5505e4f517616524063e3dc2af5c60b65b81d1a82ae9dbc0",
+        "e2e/playwright.config.ts": "14a864dfb417eacf3b3f925c317412992b462e3e4e16debc2cbd254de2980cbe",
+        "e2e/start-page.spec.ts": "f0b34adcc71d3027749576d4fd61dad3fbde3226e0fe0cdd1d107eb6c1f93fea"
+      }
+    }
+  ]
+}

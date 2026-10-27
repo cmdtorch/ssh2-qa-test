@@ -1,0 +1,29 @@
+services:
+  db:
+    ports: !override
+      - "15432:5432"
+    volumes: !override
+      - e2e-db-data:/var/lib/postgresql/data
+
+  backend:
+    ports: !override
+      - "18000:8000"
+    volumes: !reset []
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health/')"]
+      interval: 2s
+      timeout: 5s
+      retries: 60
+
+  frontend:
+    ports: !override
+      - "13000:3000"
+    volumes: !reset []
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/').then((r) => process.exit(r.ok ? 0 : 1), () => process.exit(1))"]
+      interval: 2s
+      timeout: 30s
+      retries: 60
+
+volumes:
+  e2e-db-data:

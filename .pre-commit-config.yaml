@@ -1,0 +1,26 @@
+# Lint and format checks on staged files; no test hooks (tests run with `make test`).
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check (backend)
+        entry: uv run --project backend --frozen ruff check --force-exclude
+        language: system
+        types: [python]
+        files: ^backend/
+      - id: ruff-format
+        name: ruff format (backend)
+        entry: uv run --project backend --frozen ruff format --force-exclude
+        language: system
+        types: [python]
+        files: ^backend/
+      - id: eslint
+        name: eslint (frontend)
+        entry: bash -c 'cd frontend && exec node_modules/.bin/eslint --max-warnings=0 --no-warn-ignored "${@#frontend/}"' --
+        language: system
+        files: ^frontend/.*\.(ts|tsx|js|jsx|mjs|cjs)$
+      - id: prettier
+        name: prettier (frontend)
+        entry: bash -c 'cd frontend && exec node_modules/.bin/prettier --write --ignore-unknown "${@#frontend/}"' --
+        language: system
+        files: ^frontend/
