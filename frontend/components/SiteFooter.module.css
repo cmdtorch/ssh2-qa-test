@@ -1,0 +1,149 @@
+.footer {
+  margin-top: var(--space-7);
+  background: var(--color-placeholder-light);
+}
+
+.inner {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4);
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 600;
+  color: #f5c400;
+  text-decoration: none;
+}
+
+.logo:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.info,
+.social,
+.columns ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+
+.inactive {
+  cursor: default;
+}
+
+.columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-5);
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.columnTitle {
+  margin: 0 0 var(--space-3);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.columns li {
+  margin-bottom: var(--space-2);
+  color: var(--color-text-muted);
+  overflow-wrap: anywhere;
+}
+
+.contact {
+  margin: 0 0 var(--space-2);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-top: var(--space-4);
+  font-size: 14px;
+}
+
+.social {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.legal {
+  display: flex;
+  gap: var(--space-4);
+  text-decoration: underline;
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    padding: var(--space-5) var(--space-6);
+  }
+
+  .columns {
+    grid-template-columns: repeat(5, auto);
+    justify-content: space-between;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer {
+    margin-top: 120px;
+  }
+
+  .inner {
+    padding: 28px 80px;
+  }
+
+  .top {
+    padding-bottom: 28px;
+  }
+
+  .logo {
+    font-size: 44px;
+    font-weight: 500;
+  }
+
+  .info {
+    gap: 48px;
+    font-size: 1.125rem;
+  }
+
+  .columns {
+    padding: 36px 0;
+  }
+
+  .columnTitle {
+    font-size: 1.125rem;
+    margin-bottom: 18px;
+  }
+
+  .columns li {
+    margin-bottom: 12px;
+  }
+
+  .bottom {
+    padding-top: 28px;
+  }
+}

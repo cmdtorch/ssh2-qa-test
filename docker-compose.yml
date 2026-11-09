@@ -17,10 +17,12 @@ services:
     env_file: .env
     environment:
       DATABASE_URL: postgres://${POSTGRES_USER:-app}:${POSTGRES_PASSWORD:-app}@db:5432/${POSTGRES_DB:-app}
+      ALLOWED_HOSTS: backend
     ports:
       - "${BACKEND_PORT:-8000}:8000"
     volumes:
       - ./backend:/app
+      - media-data:/app/media
     depends_on:
       - db
 
@@ -31,6 +33,7 @@ services:
     env_file: .env
     environment:
       WATCHPACK_POLLING: "true"
+      BACKEND_URL: "http://backend:8000"
     ports:
       - "${FRONTEND_PORT:-3000}:3000"
     volumes:
@@ -40,3 +43,4 @@ services:
 
 volumes:
   db-data:
+  media-data:

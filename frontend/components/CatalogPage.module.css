@@ -1,0 +1,127 @@
+.main {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--space-5) var(--space-4) var(--space-7);
+}
+
+.crumbs {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.crumbs a {
+  text-decoration: none;
+}
+
+.crumbs [aria-current] {
+  color: var(--color-text);
+}
+
+.title {
+  margin: var(--space-3) 0;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 500;
+}
+
+.intro {
+  max-width: 600px;
+  margin: 0 auto var(--space-5);
+  text-align: center;
+  color: var(--color-text-muted);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-4);
+}
+
+.filterButton {
+  height: 48px;
+  padding: 0 var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: 24px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+  cursor: pointer;
+}
+
+.filterButton:focus-visible,
+.reset:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-3);
+  margin: 0;
+  padding: 0;
+}
+
+.empty {
+  padding: var(--space-7) 0;
+  text-align: center;
+}
+
+.reset {
+  height: 48px;
+  padding: 0 var(--space-5);
+  border: 1px solid var(--color-text);
+  border-radius: 24px;
+  background: var(--color-text);
+  color: var(--color-surface);
+  font: inherit;
+  cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+  .main {
+    padding-top: var(--space-6);
+  }
+
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+}
+
+@media (min-width: 1024px) {
+  .main {
+    padding: 72px 80px 96px;
+  }
+
+  .title {
+    font-size: 2.25rem;
+  }
+
+  .toolbar {
+    margin-bottom: 40px;
+  }
+
+  .grid {
+    gap: 20px;
+  }
+
+  .filterButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 1.125rem;
+  }
+}
+
+.crumbs a {
+  color: var(--color-text-muted);
+}
+
+.crumbs > span[aria-hidden="true"] {
+  margin: 0 12px;
+}

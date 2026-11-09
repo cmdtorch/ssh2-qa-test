@@ -5,6 +5,9 @@ const url = process.env.E2E_BASE_URL;
 export default defineConfig({
   testDir: ".",
   retries: 0,
+  // The database is shared by all tests, so they run one after another.
+  workers: 1,
+  fullyParallel: false,
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
   use: { baseURL: url || "http://localhost:13000" },
   webServer: url

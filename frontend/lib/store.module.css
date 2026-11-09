@@ -1,0 +1,7 @@
+.notice {
+  margin: 0;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-notice-bg);
+  color: var(--color-notice-text);
+  text-align: center;
+}

@@ -1,0 +1,64 @@
+/*
+ * Shared variables and base styles. The desktop layout starts at 1024px: CSS
+ * custom properties cannot be used inside media queries, so every component
+ * module writes the literal `@media (min-width: 1024px)` (or max-width: 1023px).
+ */
+:root {
+  --color-text: #111111;
+  --color-text-muted: #6b6b6b;
+  --color-surface: #ffffff;
+  --color-background: #ffffff;
+  --color-border: #e2e2e2;
+  --color-accent: #b3243b;
+  --color-sale: #e63950;
+  --color-placeholder: #ececec;
+  --color-placeholder-light: #f6f6f6;
+  --color-notice-bg: #fff4d6;
+  --color-notice-text: #4a3a00;
+  --color-focus: #1a5fd0;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --content-max-width: 1440px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}

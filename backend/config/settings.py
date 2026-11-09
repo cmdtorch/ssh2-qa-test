@@ -38,6 +38,7 @@ ALLOWED_HOSTS = ["localhost", "127.0.0.1"] + [
 
 INSTALLED_APPS = [
     "core",
+    "catalog",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -91,6 +92,9 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "/static/"
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = Path(os.environ.get("MEDIA_ROOT", BASE_DIR / "media"))
 
 REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": ["rest_framework.renderers.JSONRenderer"],

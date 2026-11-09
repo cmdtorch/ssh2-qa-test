@@ -19,3 +19,4 @@ frontend/tooling-fixture-*/
 .claude/tdd-guard/
 .claude/worktrees/
 # <<< sdd-kit <<<
+backend/media/

@@ -6,9 +6,12 @@ services:
       - e2e-db-data:/var/lib/postgresql/data
 
   backend:
+    environment:
+      ALLOWED_HOSTS: "backend,172.18.0.1"
     ports: !override
       - "18000:8000"
-    volumes: !reset []
+    volumes: !override
+      - e2e-media-data:/app/media
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/api/health/')"]
       interval: 2s
@@ -16,6 +19,8 @@ services:
       retries: 60
 
   frontend:
+    environment:
+      ALLOWED_DEV_ORIGINS: "172.18.0.1"
     ports: !override
       - "13000:3000"
     volumes: !reset []
@@ -27,3 +32,4 @@ services:
 
 volumes:
   e2e-db-data:
+  e2e-media-data:
