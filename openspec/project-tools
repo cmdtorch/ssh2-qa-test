@@ -1,0 +1,4 @@
+docker — stack, E2E
+make — tests, lint
+uv — backend tests
+pnpm — frontend tests, E2E

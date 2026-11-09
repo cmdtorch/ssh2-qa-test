@@ -149,11 +149,20 @@ The backend SHALL expose `GET /api/health/`, which requires no authentication, w
 - **THEN** the response status is 405
 
 ### Requirement: REST API baseline without business endpoints
-The backend SHALL serve its API through Django REST Framework under `/api/`, and SHALL expose no API endpoint other than the health check in this change.
+The backend SHALL serve its API through Django REST Framework under `/api/`, and SHALL expose no API endpoint other than the health check `/api/health/` and the public read-only product catalog endpoints `/api/products/`, `/api/products/availability/` and `/api/products/<short-name>/`.
 
 #### Scenario: Unknown API address
 - **WHEN** a client sends `GET /api/does-not-exist/`
 - **THEN** the response status is 404
+
+#### Scenario: Product catalog endpoints are public
+- **WHEN** an anonymous client sends `GET /api/products/`, `GET /api/products/availability/?items=chanel-gabrielle:30` and `GET /api/products/chanel-gabrielle/` for a visible product
+- **THEN** each response status is 200
+
+#### Scenario: Product catalog is read-only
+- **WHEN** an anonymous client sends `POST /api/products/` with a product in the body
+- **THEN** the response status is 405
+- **AND** no product is created
 
 ### Requirement: Built-in admin panel is the only sign-in
 The backend SHALL enable Django's standard admin panel at `/admin/`, protected by its standard administrator login. An administrator account SHALL be created with Django's standard command. The admin login SHALL be the only sign-in page: the Django REST Framework browsable-API login SHALL NOT be enabled and no user sign-in or registration pages SHALL exist.
